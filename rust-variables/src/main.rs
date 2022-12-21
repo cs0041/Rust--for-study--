@@ -1,9 +1,11 @@
 fn main() {
+    //Mutable and Immutable
     let mut x = 2;
     let y = 5;
     x = x+5;
     println!("Hello world! {} + {} = {}",x,y,x+y);
 
+    //unsigned integer
     let a: u8 = 255;
     let b: u16 = 65535;
     let c: u32 = 4294967295;
@@ -26,6 +28,7 @@ fn main() {
     println!("{}, {}, {}, {}, {}", a_min, b_min, c_min, d_min, e_min);
     println!("{}, {}, {}, {}, {}", a_max, b_max, c_max, d_max, e_max);
 
+    //signed integer
     let a_min: i8 = std::i8::MIN;
     let b_min: i16 = std::i16::MIN;
     let c_min: i32 = std::i32::MIN;
@@ -40,4 +43,20 @@ fn main() {
   
     println!("{}, {}, {}, {}, {}", a_min, b_min, c_min, d_min, e_min);
     println!("{}, {}, {}, {}, {}", a_max, b_max, c_max, d_max, e_max);
+
+    //floating point
+    let a_min: f32 = std::f32::MIN;
+    let b_min: f64 = std::f64::MIN; 
+
+    let a_max: f32 = std::f32::MAX;
+    let b_max: f64 = std::f64::MAX; 
+  
+    println!("{}, {}", a_min, b_min);
+    println!("{}, {}", a_max, b_max);
+
+    let a: f64 = 1.0; 
+    let b: f64 = 0.1;
+    let c: f64 = 0.2;
+  
+    println!("{}, {}", a, b + c);
 }
