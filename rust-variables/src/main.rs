@@ -79,5 +79,19 @@ fn main() {
     // mut cannot be used with const
     // naming conventions: ALL_CAPS_WITH_UNDERSCORE
     const PI:f64 = 3.1415;
-    println!("{}",PI*2.0)
+    println!("{}",PI*2.0);
+
+    // Operations
+    // Must same type
+    let first:f64 = 7.0;
+    let second:f64 = 4.0;
+ 
+    println!(
+        "{} {} {} {} {}",
+        first+second,
+        first-second,
+        first*second,
+        first/second,
+        first%second
+    );
 }
