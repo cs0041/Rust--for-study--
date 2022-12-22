@@ -45,4 +45,27 @@ fn main() {
         true => { println!("True"); }
         false => { println!("False"); }
     }
+
+    // 6. if-else as values
+    let message = if name_len == 4 { "Four" } else { "Not Four" };
+ 
+    let message2 = if name_len == 4 {
+        "Four"
+    } else if name_len == 5 {
+        "Five"
+    } else if name_len == 6 {
+        "Six"
+    } else {
+        "Different"
+    };
+ 
+    let message3 = match name_len {
+        4 => { "Four" }
+        5 => { "Five" }
+        6 => { "Six" }
+        _ => { "Different" }
+    };
+ 
+    println!("{} {} {}", message, message2, message3);
+
 }
