@@ -31,4 +31,18 @@ fn main() {
     } else {
         println!("None of them");
     }
+
+    // 4. match statement
+    match name_len {
+        4 => { println!("Four"); }
+        5 => { println!("Five"); }
+        6 => { println!("Six"); }
+        _ => { println!("Different"); }
+    }
+ 
+    // 5. boolean match
+    match first {
+        true => { println!("True"); }
+        false => { println!("False"); }
+    }
 }
