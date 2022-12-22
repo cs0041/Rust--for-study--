@@ -73,11 +73,13 @@ fn main() {
     println!("{}, {}", on, off);
      
     // Constants 
+    //*************************************
     // Constants are not declared using let 
     // type has to be declared 
     // the value of a constant cannot be computed during runtime
     // mut cannot be used with const
     // naming conventions: ALL_CAPS_WITH_UNDERSCORE
+    //*************************************
     const PI:f64 = 3.1415;
     println!("{}",PI*2.0);
 
@@ -167,9 +169,11 @@ fn main() {
     );
 
     // Arrays 
+    //*************************************
     // Rust arrays have a fixed length. 
     // Each element in a Rust array has the same type.
     // Essentially, arrays are like tuples, where the type of each element is fixed.
+    //*************************************
     let cheat_code: [u32; 4] = [19, 65, 9, 17];
     let zeros = [1.2; 10];
  
@@ -180,4 +184,89 @@ fn main() {
  
     let slice = &cheat_code[1..3];
     println!("Slice of cheat_code: {:?} {}", slice, slice.len());
+
+    //Strings
+    //*************************************
+    // 1.&str: string slice (referencing the variable type) / string literal (referencing the value encapsulated by double quotes). 
+    // This is a (mostly) immutable character sequence.
+    // may be stored on Stack, Heap, or may be embedded in the code 
+    // optimized for runtime speed
+
+    // 2.String: flexible, mutable string stored on the heap.
+
+    // Converting a string literal to a mutable string: 
+    // to_string method 
+    // String::from method
+
+    // Converting a mutable string to a string literal: 
+    // & dereferencing in front of the string variable.
+    //  It doesn’t copy the value, but just references the characters (see borrowing).
+    //*************************************
+
+    // &str: string slice
+    // "": string literal
+    let name: &str = "Zsolt";
+
+    // String: mutable string
+    let location: String = "Sliema, Malta".to_string();
+    let title: String = String::from("IT Engineer");
+ 
+    let title_slice = &title;
+    println!("Hi, my name is {}.", name);
+    println!("I live in {}.", location);
+    println!("This name is {} characters long.", name.len());
+    println!("My title is {}.", title);
+    println!("Title as a string slice: {}.", title_slice);
+
+    //*************************************
+    // Getting a single character from a string: not that easy, because you have to check if the character exists.
+
+    // String slicing: [Start…EndPlusOne], like in Python, the second index is not included.
+
+    // Important: if you index out from the string, your program will crash 
+    // If you want to get a slice until the end of the string, use [Start..] without specifying the end.
+    //*************************************
+    let digits = "0123456789".to_string();
+ 
+    // Creating string slices
+    let octal_digits = &digits[0..8];
+    let binary_digits = &octal_digits[0..2];
+ 
+    println!("{} {} {}", digits, octal_digits, binary_digits);
+ 
+    // 'c' - character (primitive type)
+    // "c" - immutable string literal
+    // Referencing a single character from a string is harder
+    if let Some(four) = &digits.chars().nth(12) {
+        println!("Four: {}", four);
+    } else {
+        println!("Error");
+    }   
+
+    //*************************************
+    // String concatenation: 
+    // + only works if the left operand is a String and the right operand is an &str.
+    // + is a left-associative operator, String + &str; → String.
+    // format! macro, works like print! or println!, but instead of writing to the console, it returns a value 
+    // array concatenation of &str values 
+    // creating an empty string and pushing &str values to it
+    //*************************************
+
+    println!(
+    "String concatenation: {} {} {}",
+    "first".to_string() + "second",
+    format!("{}{}", "first", "second"),
+    ["first", "second"].concat(),
+    );  
+ 
+    let first = "1".to_string();
+    let second = "2".to_string();
+    let third = "3".to_string();
+    let fourth = "4".to_string();
+ 
+    println!(
+        "String concatenation: {}",
+        first + &second + &third + &fourth
+    );
+
 }
