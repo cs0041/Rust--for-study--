@@ -1,11 +1,11 @@
 fn main() {
-    //Mutable and Immutable
+    // Mutable and Immutable
     let mut x = 2;
     let y = 5;
     x = x+5;
     println!("Hello world! {} + {} = {}",x,y,x+y);
 
-    //unsigned integer
+    // Unsigned integer
     let a: u8 = 255;
     let b: u16 = 65535;
     let c: u32 = 4294967295;
@@ -28,7 +28,7 @@ fn main() {
     println!("{}, {}, {}, {}, {}", a_min, b_min, c_min, d_min, e_min);
     println!("{}, {}, {}, {}, {}", a_max, b_max, c_max, d_max, e_max);
 
-    //signed integer
+    // Signed integer
     let a_min: i8 = std::i8::MIN;
     let b_min: i16 = std::i16::MIN;
     let c_min: i32 = std::i32::MIN;
@@ -44,7 +44,7 @@ fn main() {
     println!("{}, {}, {}, {}, {}", a_min, b_min, c_min, d_min, e_min);
     println!("{}, {}, {}, {}, {}", a_max, b_max, c_max, d_max, e_max);
 
-    //floating point
+    // Floating point
     let a_min: f32 = std::f32::MIN;
     let b_min: f64 = std::f64::MIN; 
 
@@ -59,4 +59,25 @@ fn main() {
     let c: f64 = 0.2;
   
     println!("{}, {}", a, b + c);
+
+    // Characters
+    let ch1 = "X";
+    let ch2 = "\u{2603}";
+  
+    println!("{}, {}", ch1, ch2);
+
+    // Booleans
+    let on: bool = true;
+    let off: bool = false; 
+  
+    println!("{}, {}", on, off);
+     
+    // Constants 
+    // Constants are not declared using let 
+    // type has to be declared 
+    // the value of a constant cannot be computed during runtime
+    // mut cannot be used with const
+    // naming conventions: ALL_CAPS_WITH_UNDERSCORE
+    const PI:f64 = 3.1415;
+    println!("{}",PI*2.0)
 }
