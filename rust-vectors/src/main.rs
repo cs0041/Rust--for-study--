@@ -70,6 +70,33 @@ fn main() {
     }
     println!("{:?}",n);
 
+    // Remove and pop elements from a vector: 
 
+    // !Remove dangerous it can index out of bounds: the program crashes.
+    let mut values: Vec<u32> = vec![1,2,8,16];
+    let element1 = values.remove(0);
+    println!("Removed element : {:?}",element1);
+    println!("Vector : {:?}",values);
+
+    // Pop safe than remove cause it no error  if index out of bounds just return None.
+    let element2 = values.pop();
+    println!("Popped element : {:?}",element2);
+    println!("Vector : {:?}",values);
+    
+    // Using pop in a safe way: 
+    let mut exponents: Vec<i32> = Vec::new();
+
+    //exponents.push(1);
+    //exponents.push(2);
+
+    let pop_value: i32;
+    match exponents.pop() {
+        Some(value) => { pop_value = value; 
+        }
+        None => {
+            pop_value = 0;
+        }    
+    }
+    println!("{}",pop_value)
 
 }
