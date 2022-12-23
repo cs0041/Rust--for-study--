@@ -12,8 +12,27 @@ struct Candle {
     high: i64,
     low: i64,
     close: i64,
-    zeros: u32
+    zeros: u32,
+    year:u32,
+    month:u32,
+    day:u32,
 }
+
+// ***Traits 
+// In other languages, we call Traits interfaces. 
+// A trait (interface) is a promise that the struct (class) on which the trait is specified, 
+// implements the trait. Without implementation, the code fails to compile.
+trait Dateable {
+    fn get_date(&self) -> String;
+}
+
+impl Dateable for Candle { 
+    fn get_date(&self) -> String {
+        format!("{}-{}-{}",self.year,self.month,self.day)
+    }
+}
+
+
 // Methods of a class are defined using impl
 impl Candle {
     // &self  - reference to this (see Javascript) or self (see python)
@@ -41,9 +60,13 @@ fn main() {
     high: 10883,
     low: 9517,
     close: 9981,
-    zeros: 2
+    zeros: 2,
+    year:2022,
+    month:3,
+    day: 14
      };
     println!("{}", today.get_delta());
     println!("{}", today.get_info());
+    println!("{}", today.get_date());
    
 }
