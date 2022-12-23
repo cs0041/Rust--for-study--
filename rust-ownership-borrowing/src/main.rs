@@ -38,7 +38,7 @@ fn main() {
     println!("{}",str2);
     println!("{}",new_str2);
 
-
+    // *********************************************************************
     // ***Functions and ownership
     // function arguments have the scope of a function 
     // when returning a value in a function, the returned value’s ownership is transferred to 
@@ -66,6 +66,21 @@ fn main() {
     //println!("{}",str3); // Error : borrow of moved value
     println!("{}",str4);
 
+
+    // *********************************************************************
+    // ***Borrowing
+    // We might not want ownership transfer to happen, as in double_str, we are only using the value of s without owning it:
+    // The & operator only takes the reference of str.
+    // when &str is passed to double_str, the value “reference” is still owned by str 
+    // s is just a reference, therefore, once s gets out of scope, we do not need to free 
+    // anything in memory, as s does not own anything
+    // The act of taking the reference of a value without having ownership of it is called borrowing. Once the borrowed reference gets out of scope, the owner still owns its value.
+    let str5: String = "reference".to_string();
+    let str6: String = double_str_borrowing(&str5);
+
+    println!("{}",str5); 
+    println!("{}",str6);
+
 }
 
 fn f(s:String) ->String {   // scope of s within these braces
@@ -75,6 +90,10 @@ fn f(s:String) ->String {   // scope of s within these braces
 }
 
 fn double_str(s:String) -> String {
+    return format!("{}{}",s,s)
+}
+
+fn double_str_borrowing(s:&String) -> String {
     return format!("{}{}",s,s)
 }
 
