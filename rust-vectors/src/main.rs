@@ -19,4 +19,12 @@ fn main() {
     for exp in &exponents {
         println!("2.pow({}) = {}",exp,2_i32.pow(*exp))
     }
+
+    let mut values:Vec<u32> = vec![1,2,8,16];
+    for exp in &mut values{
+        let x = 2_u32.pow(*exp);
+        println!("2.pow({}) = {}",exp,x);
+        *exp = x;
+    }
+    println!("{:?}",values);
 }
