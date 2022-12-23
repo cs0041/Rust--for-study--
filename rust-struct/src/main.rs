@@ -1,3 +1,10 @@
+// ***Structs 
+// Classes in Rust are called Structs. Structs are defined in two parts: 
+
+// field specification: struct 
+// methods: impl
+
+
 // Fields of a class are defined in a struct
 struct Candle {
     ticker: String,
