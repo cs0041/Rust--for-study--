@@ -81,6 +81,15 @@ fn main() {
     println!("{}",str5); 
     println!("{}",str6);
 
+    // *********************************************************************
+    // ***Mutable Borrowing
+    let mut name:String = "reference".to_string();
+    let email = " <ref@rerr.com>";
+    add_email(&mut name, email);
+
+    println!("{}",name);
+
+
 }
 
 fn f(s:String) ->String {   // scope of s within these braces
@@ -97,6 +106,8 @@ fn double_str_borrowing(s:&String) -> String {
     return format!("{}{}",s,s)
 }
 
-
+fn add_email ( name: &mut String , email:&str) -> () {
+    name.push_str(email);
+}
 
 
