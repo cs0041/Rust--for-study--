@@ -49,6 +49,17 @@ fn main() {
     //println!("{}",str); // Error : borrow of moved value
     println!("{}",str2);
 
+
+    ///////////////////////////////////////////////////////
+    // What happened here?
+    // We create a mutable String with value “reference”
+    // We pass this string to a function called double_str 
+    // Upon passing “reference” to double_str, ownership of reference is transferred to argument s of double_str. The scope of s is within the function body. In main, str gets invalidated as it lost ownership of “reference” 
+    // A new string “referencereference” is created and returned by double_str 
+    // Upon exiting double_str, s gets out of scope, and therefore, the memory storing “reference” is freed 
+    // Upon returning “referencereference” the new owner of this new string is str2 
+    // Consequence: as str is invalidated, we cannot use its value in main
+
     let str3: String = "reference".to_string();
     let str4: String = double_str(str3);
 
