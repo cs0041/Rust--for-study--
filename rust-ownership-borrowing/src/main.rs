@@ -38,4 +38,35 @@ fn main() {
     println!("{}",str2);
     println!("{}",new_str2);
 
+
+    // ***Functions and ownership
+    // function arguments have the scope of a function 
+    // when returning a value in a function, the returned value’s ownership is transferred to 
+    // the variable holding the return value of the function.
+    let str: String = "reference".to_string();
+    let str2: String = f(str);
+
+    //println!("{}",str); // Error : borrow of moved value
+    println!("{}",str2);
+
+    let str3: String = "reference".to_string();
+    let str4: String = double_str(str3);
+
+    //println!("{}",str3); // Error : borrow of moved value
+    println!("{}",str4);
+
 }
+
+fn f(s:String) ->String {   // scope of s within these braces
+    let new_str: String = s; // new_str now owns "reference"
+    return new_str;          // ownership is transferred to the Value of
+                             // Value = f(str)
+}
+
+fn double_str(s:String) -> String {
+    return format!("{}{}",s,s)
+}
+
+
+
+
